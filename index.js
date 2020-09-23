@@ -1,7 +1,7 @@
 const { urlencoded } = require("express");
 const express = require("express");
 const puppeteer = require("puppeteer");
-
+const PORT = process.env.PORT;
 const app = express();
 
 app.use(express.json());
@@ -77,4 +77,4 @@ app.get("/:name",async (req, res) => {
     }
 });
 
-app.listen(3000, () => {console.log("this server listening on 3000")});
+app.listen(PORT, () => {console.log("this server listening on 3000")});
