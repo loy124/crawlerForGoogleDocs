@@ -64,6 +64,9 @@ const crawler = async(name) => {
    }
 }
 
+app.get("/", (req, res) => {
+    return res.send("/ 뒤에 이름을 작성해서 제출하세요");
+})
 app.get("/:name",async (req, res) => {
     console.log(req.params);
     try {
