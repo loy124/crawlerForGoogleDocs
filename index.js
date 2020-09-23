@@ -66,8 +66,12 @@ const crawler = async(name) => {
 
 app.get("/:name",async (req, res) => {
     console.log(req.params);
-    await crawler(req.params.name);
-    return res.json(req.params);
+    try {
+        await crawler(req.params.name);
+        return res.json({upload:"제출이 정상적으로 완료되었습니다"});
+    } catch (error) {
+        return res.json({upload:"데이터 작성및 제출에 실패하였습니다."});
+    }
 });
 
 app.listen(8000, () => {console.log("this server listening on 8000")});
