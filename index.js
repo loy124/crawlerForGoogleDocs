@@ -65,8 +65,8 @@ const crawler = async(name) => {
 }
 
 app.get("/", (req, res) => {
-    return res.send("/ 뒤에 이름을 작성해서 제출하세요");
-})
+    return res.json({hello: "/ 뒤에 이름을 제출하세요!"})
+});
 app.get("/:name",async (req, res) => {
     console.log(req.params);
     try {
@@ -77,4 +77,4 @@ app.get("/:name",async (req, res) => {
     }
 });
 
-app.listen(8000, () => {console.log("this server listening on 8000")});
+app.listen(3000, () => {console.log("this server listening on 3000")});
