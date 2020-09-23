@@ -10,7 +10,10 @@ app.use(express.urlencoded({extended:false}));
 
 const crawler = async(name) => {
    try{
-    const browser = await puppeteer.launch({headless:false});
+    const browser = await puppeteer.launch({headless:true, args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+      ],});
     const page = await browser.newPage();
     await page.goto("https://bit.ly/2Z9XInC",{waitUntil:"load"});
     await page.waitForNavigation();
